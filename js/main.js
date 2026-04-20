@@ -64,6 +64,21 @@ function showAbout(type) {
         `;
         box.classList.add('fade-in');
     }
+
+    // Dynamic placement for mobile vs desktop
+    if (window.innerWidth <= 767) {
+        const clickedBox = document.querySelector(`.about__box[onclick="showAbout('${type}')"]`);
+        if (clickedBox) {
+            clickedBox.insertAdjacentElement('afterend', box);
+            box.style.marginTop = '0';
+        }
+    } else {
+        const aboutData = document.querySelector('.about__data');
+        if (aboutData) {
+            aboutData.appendChild(box);
+            box.style.marginTop = '2rem';
+        }
+    }
 }
 
 /*==================== MENU SHOW Y HIDDEN ====================*/
@@ -248,17 +263,14 @@ window.addEventListener('click', function (e) {
     }
 });
 
-// For mobile, when clicking a dropdown item that links to a section, close the menu
+// For mobile, when clicking a dropdown item, close the menu
 const dropdownItems = document.querySelectorAll('.nav__dropdown-item');
 dropdownItems.forEach(item => {
     item.addEventListener('click', () => {
-        // If it's a section link, we might want to close the mobile menu
-        if (item.getAttribute('href').startsWith('#')) {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.remove('show-menu');
-            const dropdown = document.getElementById('nav-more');
-            if (dropdown) dropdown.classList.remove('show-dropdown');
-        }
+        const navMenu = document.getElementById('nav-menu');
+        if (navMenu) navMenu.classList.remove('show-menu');
+        const dropdown = document.getElementById('nav-more');
+        if (dropdown) dropdown.classList.remove('show-dropdown');
     });
 });
 
@@ -359,3 +371,58 @@ if (certSlider) {
         });
     });
 }
+
+/*==================== DOWNLOAD RESUME ANIMATION ====================*/
+const downloadBtns = document.querySelectorAll('.dl-resume-btn');
+
+downloadBtns.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        // Prevent multiple clicks while animation is running
+        if (this.classList.contains('is-downloading')) {
+            e.preventDefault();
+            return;
+        }
+
+        const originalText = this.innerHTML;
+        this.classList.add('is-downloading');
+        
+        // Disable pointer events temporarily
+        this.style.pointerEvents = 'none';
+
+        // Stage 1: Downloading state with animated down arrow
+        this.innerHTML = `Downloading... <i class='bx bx-download bx-fade-down'></i>`;
+
+        // Stage 2: Complete state with Green Checkmark
+        setTimeout(() => {
+            this.innerHTML = `Complete! <i class='bx bx-check-circle'></i>`;
+            
+            // Apply inline styles to make it prominently green temporarily
+            this.style.color = "#22c55e"; // Green text color
+            if (this.classList.contains('button')) {
+                this.dataset.oldBorder = this.style.borderColor || "";
+                this.style.borderColor = "#22c55e";
+            }
+            if (this.classList.contains('button--primary')) {
+                this.dataset.oldBg = this.style.backgroundColor || "";
+                this.style.backgroundColor = "rgba(34, 197, 94, 0.15)";
+            }
+
+            // Stage 3: Revert completely to original state after 2.5 seconds
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.classList.remove('is-downloading');
+                this.style.pointerEvents = 'auto';
+                
+                // Remove temporary styles
+                this.style.color = "";
+                if (this.classList.contains('button')) {
+                    this.style.borderColor = this.dataset.oldBorder;
+                }
+                if (this.classList.contains('button--primary')) {
+                    this.style.backgroundColor = this.dataset.oldBg;
+                }
+            }, 2500);
+
+        }, 3000); // Wait 3 seconds for the "downloading" phase
+    });
+});
