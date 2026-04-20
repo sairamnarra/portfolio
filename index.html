@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio - Web Developer</title>
+    <meta name="description"
+        content="Professional portfolio of a passionate software developer showcasing projects, skills, and experience.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Boxicons for Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body class="light-mode">
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <a href="#home" class="scroll-top" id="scroll-top" aria-label="Scroll to top" title="Scroll to top">
+        <i class='bx bx-up-arrow-alt'></i>
+    </a>
+
+    <!-- Header / Navbar -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo" aria-label="Portfolio Logo" title="Home">SAIRAMNARRA<span>.</span></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    <li class="nav__item nav__dropdown" id="nav-more">
+                        <a href="#" class="nav__link" onclick="toggleDropdown(event)">More <i
+                                class='bx bx-chevron-down nav__dropdown-icon'></i></a>
+                        <div class="nav__dropdown-content" id="more-dropdown">
+                            <a href="#skills" class="nav__dropdown-item"><i class='bx bx-code-alt'></i> Skills</a>
+                            <a href="#certifications" class="nav__dropdown-item"><i class='bx bx-certification'></i>
+                                Certifications</a>
+                            <a href="#internships" class="nav__dropdown-item"><i class='bx bx-laptop'></i> Virtual
+                                Internships</a>
+                            <a href="assets/AI resume .pdf" class="nav__dropdown-item"
+                                download="AI resume.pdf"><i class='bx bx-download'></i> Download Resume</a>
+                            <a href="assets/AI resume .pdf" class="nav__dropdown-item" target="_blank"
+                                rel="noopener noreferrer" type="application/pdf"><i class='bx bx-show'></i> Preview
+                                Resume</a>
+                            <a href="mailto:narrasairam13@gmail.com" class="nav__dropdown-item"><i
+                                    class='bx bx-envelope'></i> Email</a>
+                            <a href="https://www.linkedin.com/in/narra-sairam-b4048b225" class="nav__dropdown-item social-linkedin" target="_blank"
+                                rel="noopener noreferrer"><i class='bx bxl-linkedin'></i> LinkedIn</a>
+                            <a href="https://github.com/sairamnarra" class="nav__dropdown-item social-github" target="_blank"
+                                rel="noopener noreferrer"><i class='bx bxl-github'></i> GitHub</a>
+                            <a href="https://wa.me/9398684560" class="nav__dropdown-item social-whatsapp"
+                                target="_blank" rel="noopener noreferrer"><i class='bx bxl-whatsapp'></i> WhatsApp</a>
+                            <a href="https://www.instagram.com/iam_sairamnarra?igsh=MWdtdXBlZ3MyZzNkMQ==" class="nav__dropdown-item social-instagram" target="_blank"
+                                rel="noopener noreferrer"><i class='bx bxl-instagram'></i> Instagram</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="nav__close" id="nav-close" aria-label="Close menu" title="Close Menu">
+                    <i class='bx bx-x'></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <!-- Theme change button -->
+                <i class='bx bx-moon change-theme' id="theme-button" aria-label="Toggle Dark Mode"
+                    title="Toggle Dark/Light Mode"></i>
+
+                <div class="nav__toggle" id="nav-toggle" aria-label="Open menu" title="Open Menu">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__content reveal reveal-left">
+                    <span class="home__subtitle">Welcome to my world</span>
+                    <h1 class="home__title">Hi, I'm <span class="text-gradient">NARRA SAIRAM</span><br> <span
+                            class="typing-text-container"></span><span class="cursor">&nbsp;</span></h1>
+                    <p class="home__description">
+                        I craft beautifully simple websites, love clean code, and thrive on building interactive and
+                        responsive web applications.
+                    </p>
+                    <div class="home__buttons">
+                        <a href="#projects" class="button button--primary">View Projects</a>
+                        <a href="#resume" class="button button--secondary">Download Resume <i
+                                class='bx bx-download'></i></a>
+                        <a href="#contact" class="button button--outline">Contact Me</a>
+                    </div>
+                </div>
+                <div class="home__img-wrapper reveal reveal-right float-anim">
+                    <div class="home__blob">
+                        <img src="images/passport img.png" alt="Profile Image">
+                        <div class="profile-placeholder">
+                            <i class='bx bxs-user-circle'></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <h2 class="section__title reveal reveal-left">About Me</h2>
+            <span class="section__subtitle reveal reveal-right">My introduction</span>
+
+            <div class="about__container container grid">
+                <div class="about__data reveal reveal-left">
+                    <p class="about__description">
+                        I am a highly motivated fresher with a passion for software development. My objective is to
+                        build accessible, optimized, and visually stunning digital experiences. I am constantly learning
+                        new technologies and applying them to solve real-world problems.
+                    </p>
+
+                    <div class="about__info grid">
+                        <div class="about__box card-glass" onclick="showAbout('experience')" style="cursor: pointer;">
+                            <i class='bx bx-award about__icon'></i>
+                            <h3 class="about__title">Experience</h3>
+                            <span class="about__subtitle">Fresher / Open Source</span>
+                        </div>
+
+                        <div class="about__box card-glass" onclick="showAbout('education')" style="cursor: pointer;">
+                            <i class='bx bxs-graduation about__icon'></i>
+                            <h3 class="about__title">Education</h3>
+                            <span class="about__subtitle">MCA</span>
+                        </div>
+
+                        <div class="about__box card-glass" onclick="showAbout('projects')" style="cursor: pointer;">
+                            <i class='bx bx-briefcase-alt about__icon'></i>
+                            <h3 class="about__title">Projects</h3>
+                            <span class="about__subtitle">Completed</span>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Content -->
+                    <div id="about-details" class="card-glass about-details-box" style="display:none;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills section" id="skills">
+            <h2 class="section__title reveal reveal-right">Skills</h2>
+            <span class="section__subtitle reveal reveal-left">My technical level</span>
+
+            <div class="skills__container container grid">
+                <!-- Frontend & Backend -->
+                <div class="skills__content card-glass reveal reveal-left">
+                    <h3 class="skills__title">
+                        <i class='bx bx-code-curly skills__icon'></i> Frontend & Backend
+                    </h3>
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="90, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">90%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bxl-html5'></i> HTML</h3>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="85, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">85%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bxl-css3'></i> CSS</h3>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="80, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">80%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bxl-javascript'></i> JavaScript</h3>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="80, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">80%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bxl-python'></i> Python</h3>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="75, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">75%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bxl-java'></i> Core Java</h3>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="75, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">75%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bx-data'></i> SQL</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Environments -->
+                <div class="skills__content card-glass reveal reveal-right">
+                    <h3 class="skills__title">
+                        <i class='bx bx-wrench skills__icon'></i> Tools & Environments
+                    </h3>
+                    <div class="skills__box">
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="85, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">85%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bxl-git'></i> Git & GitHub</h3>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="80, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">80%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bx-book'></i> Jupyter Notebook</h3>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="90, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">90%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bx-code-alt'></i> VS Code</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skills__group">
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="75, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">75%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bx-rocket'></i> Antigravity</h3>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="85, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">85%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bx-file-blank'></i> MS Office</h3>
+                                </div>
+                            </div>
+
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="80, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <text x="18" y="20.35" class="percentage">80%</text>
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bxs-data'></i> MySQL</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <h2 class="section__title reveal reveal-left">Projects</h2>
+            <span class="section__subtitle reveal reveal-right">My recent work</span>
+
+            <div class="projects__container container grid">
+                <!-- Project 1 -->
+                <div class="project-card card-glass reveal reveal-left">
+                    <div class="project__img-wrapper">
+                        <div class="project__placeholder">Project 1 Preview</div>
+                    </div>
+                    <div class="project__content">
+                        <h3 class="project__title">E-Commerce Platform</h3>
+                        <p class="project__description">
+                            A fully responsive modern e-commerce web application with cart functionality, product
+                            listings, and an optimized checkout flow.
+                        </p>
+                        <div class="project__tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <ul class="project__features">
+                            <li><i class='bx bx-check'></i> Responsive UI</li>
+                            <li><i class='bx bx-check'></i> Cart state management</li>
+                            <li><i class='bx bx-check'></i> Product Filtering</li>
+                        </ul>
+                        <div class="project__buttons" style="justify-content: center;">
+                            <a href="#" class="button button--small button--primary" target="_blank"
+                                rel="noopener noreferrer">Live Demo <i class='bx bx-link-external'></i></a>
+                            <a href="https://github.com/sairamnarra" class="button button--small button--github" target="_blank"
+                                rel="noopener noreferrer"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card card-glass reveal reveal-right">
+                    <div class="project__img-wrapper">
+                        <div class="project__placeholder">Project 2 Preview</div>
+                    </div>
+                    <div class="project__content">
+                        <h3 class="project__title">Task Management App</h3>
+                        <p class="project__description">
+                            A dynamic task manager with drag-and-drop capabilities, user authentication, and real-time
+                            updates for team collaboration.
+                        </p>
+                        <div class="project__tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <ul class="project__features">
+                            <li><i class='bx bx-check'></i> Real-time sync</li>
+                            <li><i class='bx bx-check'></i> User Auth (JWT)</li>
+                            <li><i class='bx bx-check'></i> Drag & Drop</li>
+                        </ul>
+                        <div class="project__buttons" style="justify-content: center;">
+                            <a href="#" class="button button--small button--primary" target="_blank"
+                                rel="noopener noreferrer">Live Demo <i class='bx bx-link-external'></i></a>
+                            <a href="https://github.com/sairamnarra" class="button button--small button--github" target="_blank"
+                                rel="noopener noreferrer"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internships Section -->
+        <section class="projects section" id="internships">
+            <h2 class="section__title reveal reveal-right">Virtual Internships</h2>
+            <span class="section__subtitle reveal reveal-left">My experience</span>
+
+            <div class="projects__container container grid">
+                <!-- Internship 1 -->
+                <div class="project-card card-glass reveal reveal-left">
+                    <div class="project__img-wrapper"
+                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="project__placeholder">Internship 1</div>
+                    </div>
+                    <div class="project__content">
+                        <h3 class="project__title">AI Resume Ranking System</h3>
+                        <p class="project__description">
+                            Worked on Machine Learning models and chatbot systems using RASA to create conversational AI
+                            for business use cases.
+                        </p>
+                        <div class="project__tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">RASA</span>
+                            <span class="tech-tag">AI/ML</span>
+                        </div>
+                        <div class="project__buttons" style="justify-content: center; margin-top: 1rem;">
+                            <a href="https://drive.google.com/file/d/1z2xSmY5MK1Q3qTCi0ZHWWTYDVSfWTIl5/view?usp=sharing" target="_blank"
+                                class="button button--small button--outline">
+                                View Credential <i class='bx bx-certification'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Internship 2 -->
+                <div class="project-card card-glass reveal reveal-right">
+                    <div class="project__img-wrapper"
+                        style="background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); color: #333;">
+                        <div class="project__placeholder">Internship 2</div>
+                    </div>
+                    <div class="project__content">
+                        <h3 class="project__title">Web Development Internship</h3>
+                        <p class="project__description">
+                            Built responsive full-stack applications using React and Node.js. Optimized frontend
+                            performance and created RESTful APIs.
+                        </p>
+                        <div class="project__tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">REST APIs</span>
+                        </div>
+                        <div class="project__buttons" style="justify-content: center; margin-top: 1rem;">
+                            <a href="images/demo_certificate.png" target="_blank"
+                                class="button button--small button--outline">
+                                View Credential <i class='bx bx-certification'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="achievements section" id="achievements">
+            <h2 class="section__title reveal reveal-left">Achievements</h2>
+            <span class="section__subtitle reveal reveal-right">My academic milestones</span>
+
+            <div class="achievements__container container grid">
+                <!-- Flip Card 1 -->
+                <div class="flip-card reveal reveal-left">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flip-glass">
+                            <i class='bx bxs-graduation flip-icon pulse-anim'></i>
+                            <h3 class="flip-title">SSC</h3>
+                            <span class="flip-click">Hover to flip <i class='bx bx-refresh'></i></span>
+                        </div>
+                        <div class="flip-card-back flip-glass-back">
+                            <i class='bx bxs-trophy flip-icon-back pulse-anim'></i>
+                            <h3 class="flip-title">Mandal Topper</h3>
+                            <p class="flip-desc">Achieved top rank academically across the entire mandal in SSC
+                                examinations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flip Card 2 -->
+                <div class="flip-card reveal reveal-right">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flip-glass">
+                            <i class='bx bxs-award flip-icon pulse-anim'></i>
+                            <h3 class="flip-title">MCA</h3>
+                            <span class="flip-click">Hover to flip <i class='bx bx-refresh'></i></span>
+                        </div>
+                        <div class="flip-card-back flip-glass-back">
+                            <i class='bx bxs-medal flip-icon-back pulse-anim'></i>
+                            <h3 class="flip-title">Batch Topper</h3>
+                            <p class="flip-desc">Graduated at the top of the MCA batch with exceptional academic
+                                excellence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="certifications section" id="certifications">
+            <h2 class="section__title reveal reveal-right">Certifications</h2>
+            <span class="section__subtitle reveal reveal-left">My achievements</span>
+
+            <div class="certifications__container container certificate-slider">
+                <div class="cert-card card-glass reveal reveal-left">
+                    <i class='bx bx-medal cert__icon'></i>
+                    <h3 class="cert__title">Frontend Developer Certificate</h3>
+                    <span class="cert__issuer">Meta / Coursera</span>
+                    <a href="assets/PL-300.pdf" target="_blank" rel="noopener noreferrer"
+                        class="cert__link">View Credential <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+                <div class="cert-card card-glass reveal reveal-right">
+                    <i class='bx bx-certification cert__icon'></i>
+                    <h3 class="cert__title">Cloud Practitioner</h3>
+                    <span class="cert__issuer">AWS</span>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="cert__link">View Credential <i
+                            class='bx bx-right-arrow-alt'></i></a>
+                </div>
+                <div class="cert-card card-glass reveal reveal-left">
+                    <i class='bx bx-medal cert__icon'></i>
+                    <h3 class="cert__title">Backend Developer Certificate</h3>
+                    <span class="cert__issuer">IBM / Coursera</span>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="cert__link">View Credential <i
+                            class='bx bx-right-arrow-alt'></i></a>
+                </div>
+                <div class="cert-card card-glass reveal reveal-right">
+                    <i class='bx bx-certification cert__icon'></i>
+                    <h3 class="cert__title">Database Administrator</h3>
+                    <span class="cert__issuer">Oracle</span>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="cert__link">View Credential <i
+                            class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section class="resume section" id="resume">
+            <h2 class="section__title reveal reveal-left">Resume</h2>
+            <span class="section__subtitle reveal reveal-right">Detailed profile</span>
+            <div class="resume__container container reveal reveal-left">
+                <div class="resume__card card-glass text-center">
+                    <i class='bx bx-file resume__icon'></i>
+                    <h3 class="resume__title">Looking for the details?</h3>
+                    <p class="resume__description">You can download my full resume perfectly formatted for ATS systems
+                        or preview it instantly.</p>
+                    <div class="resume__buttons">
+                        <!-- Removed portfolio\portfolio and made sure download parameter works properly. -->
+                        <a href="assets/.Sairam_resume.pdf" class="button button--primary"
+                            download="Narra_Sairam_Resume.pdf">Download PDF <i class='bx bx-download'></i></a>
+                        <!-- type="application/pdf" helps browsers display it without downloading instantly as a binary -->
+                        <a href="assets/.Sairam_resume.pdf" class="button button--outline" target="_blank"
+                            rel="noopener noreferrer" type="application/pdf">Preview <i class='bx bx-show'></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <h2 class="section__title reveal reveal-right">Contact Me</h2>
+            <span class="section__subtitle reveal reveal-left">Get in touch</span>
+
+            <div class="contact__container container grid">
+                <div class="contact__content reveal reveal-left">
+                    <h3 class="contact__title">Talk to me</h3>
+
+                    <div class="contact__info">
+                        <div class="contact__card card-glass">
+                            <i class='bx bx-mail-send contact__card-icon'></i>
+                            <h3 class="contact__card-title">Email</h3>
+                            <span class="contact__card-data">narrasairam13@gmail.com</span>
+                            <a href="mailto:narrasairam13@gmail.com" class="contact__button" aria-label="Write an email">Write me
+                                <i class='bx bx-right-arrow-alt contact__button-icon'></i></a>
+                        </div>
+                        <div class="contact__card card-glass">
+                            <i class='bx bxl-linkedin-square contact__card-icon'></i>
+                            <h3 class="contact__card-title">LinkedIn</h3>
+                            <span class="contact__card-data">narra-sairam</span>
+                            <a href="https://www.linkedin.com/in/narra-sairam-b4048b225" class="contact__button" aria-label="Connect on LinkedIn" target="_blank"
+                                rel="noopener noreferrer">Connect <i
+                                    class='bx bx-right-arrow-alt contact__button-icon'></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact__content reveal reveal-right">
+                    <h3 class="contact__title">Write me your project</h3>
+
+                    <!-- Contact form linked to FormSubmit for real-time email functionality -->
+                    <form action="https://formsubmit.co/ajax/narrasairam13@gmail.com" method="POST" class="contact__form"
+                        id="contact-form">
+                        <!-- Disable Captcha for seamless AJAX request -->
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <div class="contact__form-div">
+                            <label for="name" class="contact__form-tag">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Insert your name"
+                                class="contact__form-input" required>
+                        </div>
+                        <div class="contact__form-div">
+                            <label for="email" class="contact__form-tag">Mail</label>
+                            <input type="email" id="email" name="email" placeholder="Insert your email"
+                                class="contact__form-input" required>
+                        </div>
+                        <div class="contact__form-div contact__form-area">
+                            <label for="message" class="contact__form-tag">Project</label>
+                            <textarea id="message" name="message" cols="30" rows="10"
+                                placeholder="Write your project details" class="contact__form-input"
+                                required></textarea>
+                        </div>
+
+                        <div class="form-message" id="form-message"></div>
+                        <button class="button button--primary" type="submit">Send Message <i
+                                class='bx bx-send'></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <h1 class="footer__title">NARRA SAIRAM</h1>
+
+            <ul class="footer__list">
+                <li><a href="#about" class="footer__link">About</a></li>
+                <li><a href="#projects" class="footer__link">Projects</a></li>
+                <li><a href="#contact" class="footer__link">Contact</a></li>
+            </ul>
+
+            <ul class="footer__social">
+                <li><a href="https://www.linkedin.com/in/narra-sairam-b4048b225" class="footer__social-link social-linkedin" aria-label="LinkedIn" target="_blank"
+                        rel="noopener noreferrer" title="LinkedIn"><i class='bx bxl-linkedin'></i></a></li>
+                <li><a href="https://github.com/sairamnarra" class="footer__social-link social-github" aria-label="GitHub" target="_blank"
+                        rel="noopener noreferrer" title="GitHub"><i class='bx bxl-github'></i></a></li>
+                <li><a href="https://www.instagram.com/iam_sairamnarra?igsh=MWdtdXBlZ3MyZzNkMQ==" class="footer__social-link social-instagram" aria-label="Instagram"
+                        target="_blank" rel="noopener noreferrer" title="Instagram"><i class='bx bxl-instagram'></i></a>
+                </li>
+                <li><a href="https://wa.me/9398684560" class="footer__social-link social-whatsapp" aria-label="WhatsApp"
+                        target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+                </li>
+            </ul>
+
+            <span class="footer__copy">
+                &#169; <span id="year"></span> Narra Sairam. All rights reserved
+            </span>
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
