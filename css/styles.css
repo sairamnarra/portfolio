@@ -235,8 +235,7 @@ textarea {
   justify-content: center;
   align-items: center;
   z-index: 2;
-  order: -1; /* Display image at the top on mobile */
-  margin-bottom: 2rem;
+  margin-top: 2rem; /* Add spacing between buttons and image */
 }
 
 .home__profile-img {
