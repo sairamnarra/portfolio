@@ -235,10 +235,12 @@ textarea {
   justify-content: center;
   align-items: center;
   z-index: 2;
+  order: -1; /* Display image at the top on mobile */
+  margin-bottom: 2rem;
 }
 
 .home__profile-img {
-  width: min(300px, 100%);
+  width: min(240px, 80%);
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 2rem;
