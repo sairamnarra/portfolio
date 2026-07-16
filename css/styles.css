@@ -230,12 +230,17 @@ textarea {
 }
 
 /* HERO IMAGE FIX */
+.home__content {
+  order: 1; /* Ensure text content is first on mobile */
+}
+
 .home__img-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
   margin-top: 2rem; /* Add spacing between buttons and image */
+  order: 2; /* Ensure image wrapper is second on mobile, right before the About section */
 }
 
 .home__profile-img {
