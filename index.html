@@ -41,7 +41,8 @@
     <!-- Header / Navbar -->
     <header class="header" id="header">
         <nav class="nav container">
-            <div class="nav__toggle" id="nav-toggle" aria-label="Open menu" title="Open Menu">
+            <div class="nav__toggle" id="nav-toggle" role="button" tabindex="0" aria-label="Open menu"
+                title="Open Menu">
                 <i class='bx bx-menu'></i>
             </div>
 
@@ -57,15 +58,15 @@
                         <a href="#" class="nav__link" onclick="toggleDropdown(event)">More <i
                                 class='bx bx-chevron-down nav__dropdown-icon'></i></a>
                         <div class="nav__dropdown-content" id="more-dropdown">
+                            <a href="#internships" class="nav__dropdown-item"><i class='bx bx-laptop'></i>
+                                Internships</a>
                             <a href="#skills" class="nav__dropdown-item"><i class='bx bx-code-alt'></i> Skills</a>
                             <a href="#certifications" class="nav__dropdown-item"><i class='bx bx-certification'></i>
                                 Certifications</a>
-                            <a href="#internships" class="nav__dropdown-item"><i class='bx bx-laptop'></i> Virtual
-                                Internships</a>
-                            <a href="https://drive.google.com/uc?export=download&id=1oVq9Bk-IltCC_ORxRy2158B7Nj3dyQGf"
+                            <a href="https://drive.google.com/uc?export=download&id=1py2tGIwLZ2LQOMpJEzbvrTFbGYz6BnGx"
                                 class="nav__dropdown-item dl-resume-btn"><i class='bx bx-download'></i> Download
                                 Resume</a>
-                            <a href="https://drive.google.com/file/d/1oVq9Bk-IltCC_ORxRy2158B7Nj3dyQGf/view?usp=sharing"
+                            <a href="https://drive.google.com/file/d/1py2tGIwLZ2LQOMpJEzbvrTFbGYz6BnGx/view?usp=sharing"
                                 class="nav__dropdown-item" target="_blank" rel="noopener noreferrer"><i
                                     class='bx bx-show'></i> Preview
                                 Resume</a>
@@ -84,25 +85,32 @@
                         </div>
                     </li>
                 </ul>
-                <div class="nav__close" id="nav-close" aria-label="Close menu" title="Close Menu">
+                <div class="nav__close" id="nav-close" role="button" tabindex="0" aria-label="Close menu"
+                    title="Close Menu">
                     <i class='bx bx-x'></i>
                 </div>
             </div>
 
             <div class="nav__btns">
                 <!-- Theme change button -->
-                <i class='bx bx-moon change-theme' id="theme-button" aria-label="Toggle Dark Mode"
-                    title="Toggle Dark/Light Mode"></i>
+                <i class='bx bx-moon change-theme' id="theme-button" role="button" tabindex="0"
+                    aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode"></i>
             </div>
         </nav>
     </header>
 
     <main class="main">
         <!-- Hero Section -->
-        <section class="home section" id="home">
+        <section class="home section" id="home"
+            style="position: relative; overflow: hidden; z-index: 1; border-bottom-left-radius: 3rem; border-bottom-right-radius: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background-color: #000000;">
+            <!-- Interactive Connected Dots Canvas -->
+            <canvas id="dots-canvas"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
+
             <div class="home__container container grid">
-                <div class="home__content reveal reveal-left">
-                    <span class="home__subtitle">Welcome to my world</span>
+                <div class="home__content reveal reveal-left"
+                    style="margin: 0 auto; display: flex; flex-direction: column; justify-content: center; min-height: 70vh; padding-bottom: 2rem; z-index: 2;">
+                    <span class="home__subtitle">Welcome to my portfolio.</span>
                     <h1 class="home__title">Hi, I'm <span class="text-gradient">NARRA SAIRAM</span><br> <span
                             class="typing-text-container"></span><span class="cursor">&nbsp;</span></h1>
                     <p class="home__description">
@@ -116,52 +124,199 @@
                         <a href="#contact" class="button button--outline">Contact Me</a>
                     </div>
                 </div>
-                <div class="home__img-wrapper reveal reveal-right float-anim">
-                    <div class="home__blob">
-                        <img src="images/passport img.png" alt="Profile Image">
-                        <div class="profile-placeholder">
-                            <i class='bx bxs-user-circle'></i>
-                        </div>
-                    </div>
+
+                <div class="home__img-wrapper reveal reveal-right">
+                    <img src="images/profile.png" alt="Profile Image" class="home__profile-img">
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
         <section class="about section" id="about">
-            <h2 class="section__title reveal reveal-left">About Me</h2>
-            <span class="section__subtitle reveal reveal-right">My introduction</span>
-
             <div class="about__container container grid">
                 <div class="about__data reveal reveal-left">
-                    <p class="about__description">
-                        I am a highly motivated fresher with a passion for software development. My objective is to
-                        build accessible, optimized, and visually stunning digital experiences. I am constantly learning
-                        new technologies and applying them to solve real-world problems.
+                    <h2 class="section__title" style="margin-bottom: 0;">About Me</h2>
+                    <span class="section__subtitle" style="margin-bottom: 1rem;">My introduction</span>
+                    <p class="about__description" style="text-align: justify;">
+                        Hello! I'm <strong>NARRA SAIRAM</strong>, an MCA graduate and aspiring Software Engineer with a
+                        strong foundation in Python, and SQL. I enjoy transforming ideas into reliable, scalable
+                        software and continuously expanding my knowledge of modern technologies. My experience through
+                        academic projects and internships has strengthened my skills in backend development, data
+                        analysis, and machine learning. I value writing clean, maintainable code, solving complex
+                        problems with a structured approach, and building applications that deliver meaningful
+                        real-world impact.
+                        <br><br>
+                        I believe that great software is built through continuous learning, collaboration, and attention
+                        to detail. Every project is an opportunity to improve my technical expertise, embrace new
+                        challenges, and contribute with professionalism and accountability. As I begin my professional
+                        journey, I am seeking opportunities to work with innovative teams where I can contribute, learn
+                        from experienced engineers, and grow into a developer who creates high-quality, scalable, and
+                        user-focused software solutions.
                     </p>
 
                     <div class="about__info grid">
                         <div class="about__box card-glass" onclick="showAbout('experience')" style="cursor: pointer;">
                             <i class='bx bx-award about__icon'></i>
                             <h3 class="about__title">Experience</h3>
-                            <span class="about__subtitle">Fresher / Open Source</span>
                         </div>
 
                         <div class="about__box card-glass" onclick="showAbout('education')" style="cursor: pointer;">
                             <i class='bx bxs-graduation about__icon'></i>
                             <h3 class="about__title">Education</h3>
-                            <span class="about__subtitle">MCA</span>
                         </div>
 
                         <div class="about__box card-glass" onclick="showAbout('projects')" style="cursor: pointer;">
                             <i class='bx bx-briefcase-alt about__icon'></i>
                             <h3 class="about__title">Projects</h3>
-                            <span class="about__subtitle">Completed</span>
                         </div>
                     </div>
 
                     <!-- Dynamic Content -->
                     <div id="about-details" class="card-glass about-details-box" style="display:none;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internships Section -->
+        <section class="projects section" id="internships">
+            <h2 class="section__title reveal reveal-right">Internships</h2>
+            <span class="section__subtitle reveal reveal-left">My experience</span>
+
+            <div class="projects__container container grid">
+                <!-- Internship 1 -->
+                <div class="project-card card-glass reveal reveal-left">
+                    <div class="project__img-wrapper">
+                        <img src="images/how-ai-resume-screening-is-changing-the-hiring-process.png"
+                            alt="AI Powered Resume Screening and Ranking System Internship"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project__content">
+                        <h3 class="project__title">AI Powered Resume Screening and Ranking System</h3>
+                        <p class="project__description">
+                            Developed NLP pipelines and machine learning algorithms to parse candidate resumes, extract
+                            key technical skillsets, and rank candidates according to job descriptions.
+                        </p>
+                        <div class="project__tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Scikit-Learn</span>
+                            <span class="tech-tag">AI/ML</span>
+                        </div>
+                        <div class="project__buttons" style="justify-content: center; margin-top: 1rem;">
+                            <a href="assets/AI%20resume%20rank.pdf" target="_blank"
+                                class="button button--small button--outline">
+                                View Credential <i class='bx bx-certification'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Internship 2 -->
+                <div class="project-card card-glass reveal reveal-right">
+                    <div class="project__img-wrapper">
+                        <img src="images/da.jpg" alt="Conversational Data Analysis Internship"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project__content">
+                        <h3 class="project__title">Conversational Data Analysis</h3>
+                        <p class="project__description">
+                            Analyzed complex datasets to extract key business insights, performed statistical data
+                            modeling, and created interactive dashboards to support data-driven decision making.
+                        </p>
+                        <div class="project__tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Jupyter Notebook</span>
+                        </div>
+                        <div class="project__buttons" style="justify-content: center; margin-top: 1rem;">
+                            <a href="assets/data%20analysis.jpg" target="_blank"
+                                class="button button--small button--outline">
+                                View Credential <i class='bx bx-certification'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <h2 class="section__title reveal reveal-left">Projects</h2>
+            <span class="section__subtitle reveal reveal-right">My recent work</span>
+
+            <div class="projects__container container grid">
+                <!-- Project 1 -->
+                <div class="project-card card-glass reveal reveal-left">
+                    <div class="project__img-wrapper">
+                        <img src="images/insurance-fraud-detection-cover.png"
+                            alt="Auto Insurance Fraud Detection Dashboard Preview"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project__content">
+                        <h3 class="project__title">Auto Insurance Fraud Detection</h3>
+                        <p class="project__description">
+                            An end-to-end machine learning web portal predicting auto insurance claim fraud. Features a
+                            Flask backend, predictive modeling, and interactive data visualization dashboards.
+                        </p>
+                        <div class="project__tech">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-Learn</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <ul class="project__features">
+                            <li><i class='bx bx-check'></i> 81% accuracy via Random Forest</li>
+                            <li><i class='bx bx-check'></i> SMOTE class balancing</li>
+                            <li><i class='bx bx-check'></i> Interactive visualizations</li>
+                        </ul>
+                        <div class="project__buttons" style="justify-content: center;">
+                            <a href="https://insurancefrauddetection-psi.vercel.app/"
+                                class="button button--small button--primary" target="_blank"
+                                rel="noopener noreferrer">Live Demo <i class='bx bx-link-external'></i></a>
+                            <a href="https://github.com/sairamnarra/Auto_insurance_Fraud_Detection"
+                                class="button button--small button--github" target="_blank" rel="noopener noreferrer"><i
+                                    class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card card-glass reveal reveal-right">
+                    <div class="project__img-wrapper">
+                        <img src="images/resume-screening-cover.png"
+                            alt="AI Powered Resume Screening and Ranking System Preview"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="project__content">
+                        <h3 class="project__title">AI Powered Resume Screening & Ranking System</h3>
+                        <p class="project__description">
+                            An intelligent semantic matching platform analyzing candidate resumes against job
+                            descriptions,
+                            ranking applicants instantly using Natural Language Processing (NLP) models.
+                        </p>
+                        <div class="project__tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <ul class="project__features">
+                            <li><i class='bx bx-check'></i> PDF & DOCX parsing</li>
+                            <li><i class='bx bx-check'></i> Semantic skill matching</li>
+                            <li><i class='bx bx-check'></i> Real-time candidate ranking</li>
+                        </ul>
+                        <div class="project__buttons" style="justify-content: center;">
+                            <a href="https://airesumerank1.vercel.app/" class="button button--small button--primary"
+                                target="_blank" rel="noopener noreferrer">Live Demo <i
+                                    class='bx bx-link-external'></i></a>
+                            <a href="https://github.com/sairamnarra/ai_resume_rank"
+                                class="button button--small button--github" target="_blank" rel="noopener noreferrer"><i
+                                    class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -183,12 +338,35 @@
                                 <svg viewBox="0 0 36 36" class="circular-chart">
                                     <path class="circle-bg"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle" stroke-dasharray="90, 100"
+                                    <path class="circle" stroke-dasharray="80, 100"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">90%</text>
                                 </svg>
                                 <div>
-                                    <h3 class="skills__name"><i class='bx bxl-html5'></i> HTML</h3>
+                                    <h3 class="skills__name"><img src="images/py.png" alt="Python"> Python</h3>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="75, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bx-data'
+                                            style="color: #00758f; font-size: 1.5rem;"></i> SQL</h3>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="90, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name"><i class='bx bxl-html5'
+                                            style="color: #e34f26; font-size: 1.5rem;"></i> HTML</h3>
                                 </div>
                             </div>
                             <div class="skills__data">
@@ -197,61 +375,10 @@
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                                     <path class="circle" stroke-dasharray="85, 100"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">85%</text>
                                 </svg>
                                 <div>
-                                    <h3 class="skills__name"><i class='bx bxl-css3'></i> CSS</h3>
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <svg viewBox="0 0 36 36" class="circular-chart">
-                                    <path class="circle-bg"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle" stroke-dasharray="80, 100"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">80%</text>
-                                </svg>
-                                <div>
-                                    <h3 class="skills__name"><i class='bx bxl-javascript'></i> JavaScript</h3>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="skills__group">
-                            <div class="skills__data">
-                                <svg viewBox="0 0 36 36" class="circular-chart">
-                                    <path class="circle-bg"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle" stroke-dasharray="80, 100"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">80%</text>
-                                </svg>
-                                <div>
-                                    <h3 class="skills__name"><i class='bx bxl-python'></i> Python</h3>
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <svg viewBox="0 0 36 36" class="circular-chart">
-                                    <path class="circle-bg"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle" stroke-dasharray="75, 100"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">75%</text>
-                                </svg>
-                                <div>
-                                    <h3 class="skills__name"><i class='bx bxl-java'></i> Core Java</h3>
-                                </div>
-                            </div>
-                            <div class="skills__data">
-                                <svg viewBox="0 0 36 36" class="circular-chart">
-                                    <path class="circle-bg"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle" stroke-dasharray="75, 100"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">75%</text>
-                                </svg>
-                                <div>
-                                    <h3 class="skills__name"><i class='bx bx-data'></i> SQL</h3>
+                                    <h3 class="skills__name"><i class='bx bxl-css3'
+                                            style="color: #1572b6; font-size: 1.5rem;"></i> CSS</h3>
                                 </div>
                             </div>
                         </div>
@@ -269,12 +396,31 @@
                                 <svg viewBox="0 0 36 36" class="circular-chart">
                                     <path class="circle-bg"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle" stroke-dasharray="85, 100"
+                                    <path class="circle" stroke-dasharray="80, 100"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">85%</text>
                                 </svg>
                                 <div>
-                                    <h3 class="skills__name"><i class='bx bxl-git'></i> Git & GitHub</h3>
+                                    <h3 class="skills__name"><i class='bx bxs-data'
+                                            style="color: #00758f; font-size: 1.5rem;"></i> MySQL</h3>
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="circle" stroke-dasharray="85, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div>
+                                    <h3 class="skills__name">
+                                        <span style="display: inline-flex; align-items: center; gap: 0.25rem;">
+                                            <i class='bx bxl-git'
+                                                style="color: #f05032; font-size: 1.5rem; margin-right: 0;"></i>
+                                            <i class='bx bxl-github'
+                                                style="color: var(--title-color); font-size: 1.4rem;"></i>
+                                        </span>
+                                        &nbsp;Git & GitHub
+                                    </h3>
                                 </div>
                             </div>
                             <div class="skills__data">
@@ -283,10 +429,10 @@
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                                     <path class="circle" stroke-dasharray="80, 100"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">80%</text>
                                 </svg>
                                 <div>
-                                    <h3 class="skills__name"><i class='bx bx-book'></i> Jupyter Notebook</h3>
+                                    <h3 class="skills__name"><img src="images/jn.png" alt="Jupyter Notebook"> Jupyter
+                                        Notebook</h3>
                                 </div>
                             </div>
                             <div class="skills__data">
@@ -295,24 +441,10 @@
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                                     <path class="circle" stroke-dasharray="90, 100"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">90%</text>
                                 </svg>
                                 <div>
-                                    <h3 class="skills__name"><i class='bx bx-code-alt'></i> VS Code</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skills__group">
-                            <div class="skills__data">
-                                <svg viewBox="0 0 36 36" class="circular-chart">
-                                    <path class="circle-bg"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle" stroke-dasharray="75, 100"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">75%</text>
-                                </svg>
-                                <div>
-                                    <h3 class="skills__name"><i class='bx bx-rocket'></i> Antigravity</h3>
+                                    <h3 class="skills__name"><i class='bx bxl-visual-studio'
+                                            style="color: #007acc; font-size: 1.5rem;"></i> VS Code</h3>
                                 </div>
                             </div>
                             <div class="skills__data">
@@ -321,153 +453,12 @@
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                                     <path class="circle" stroke-dasharray="85, 100"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">85%</text>
                                 </svg>
                                 <div>
-                                    <h3 class="skills__name"><i class='bx bx-file-blank'></i> MS Office</h3>
+                                    <h3 class="skills__name"><img src="images/msoffice.png" alt="MS Office"> MS Office
+                                    </h3>
                                 </div>
                             </div>
-
-                            <div class="skills__data">
-                                <svg viewBox="0 0 36 36" class="circular-chart">
-                                    <path class="circle-bg"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <path class="circle" stroke-dasharray="80, 100"
-                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                    <text x="18" y="20.35" class="percentage">80%</text>
-                                </svg>
-                                <div>
-                                    <h3 class="skills__name"><i class='bx bxs-data'></i> MySQL</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="projects section" id="projects">
-            <h2 class="section__title reveal reveal-left">Projects</h2>
-            <span class="section__subtitle reveal reveal-right">My recent work</span>
-
-            <div class="projects__container container grid">
-                <!-- Project 1 -->
-                <div class="project-card card-glass reveal reveal-left">
-                    <div class="project__img-wrapper">
-                        <img src="images/project1 img.png" alt="E-Commerce Platform Preview" style="width: 100%; height: 100%; object-fit: contain; padding: 0.5rem;">
-                    </div>
-                    <div class="project__content">
-                        <h3 class="project__title">E-Commerce Platform</h3>
-                        <p class="project__description">
-                            A fully responsive modern e-commerce web application with cart functionality, product
-                            listings, and an optimized checkout flow.
-                        </p>
-                        <div class="project__tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <ul class="project__features">
-                            <li><i class='bx bx-check'></i> Responsive UI</li>
-                            <li><i class='bx bx-check'></i> Cart state management</li>
-                            <li><i class='bx bx-check'></i> Product Filtering</li>
-                        </ul>
-                        <div class="project__buttons" style="justify-content: center;">
-                            <a href="https://insurance-2-bpmv.onrender.com" class="button button--small button--primary" target="_blank"
-                                rel="noopener noreferrer">Live Demo <i class='bx bx-link-external'></i></a>
-                            <a href="https://github.com/sairamnarra" class="button button--small button--github"
-                                target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card card-glass reveal reveal-right">
-                    <div class="project__img-wrapper">
-                        <div class="project__placeholder">Project 2 Preview</div>
-                    </div>
-                    <div class="project__content">
-                        <h3 class="project__title">Task Management App</h3>
-                        <p class="project__description">
-                            A dynamic task manager with drag-and-drop capabilities, user authentication, and real-time
-                            updates for team collaboration.
-                        </p>
-                        <div class="project__tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                        <ul class="project__features">
-                            <li><i class='bx bx-check'></i> Real-time sync</li>
-                            <li><i class='bx bx-check'></i> User Auth (JWT)</li>
-                            <li><i class='bx bx-check'></i> Drag & Drop</li>
-                        </ul>
-                        <div class="project__buttons" style="justify-content: center;">
-                            <a href="#" class="button button--small button--primary" target="_blank"
-                                rel="noopener noreferrer">Live Demo <i class='bx bx-link-external'></i></a>
-                            <a href="https://github.com/sairamnarra" class="button button--small button--github"
-                                target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Internships Section -->
-        <section class="projects section" id="internships">
-            <h2 class="section__title reveal reveal-right">Virtual Internships</h2>
-            <span class="section__subtitle reveal reveal-left">My experience</span>
-
-            <div class="projects__container container grid">
-                <!-- Internship 1 -->
-                <div class="project-card card-glass reveal reveal-left">
-                    <div class="project__img-wrapper"
-                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <div class="project__placeholder">Internship 1</div>
-                    </div>
-                    <div class="project__content">
-                        <h3 class="project__title">AI Resume Ranking System</h3>
-                        <p class="project__description">
-                            Worked on Machine Learning models and chatbot systems using RASA to create conversational AI
-                            for business use cases.
-                        </p>
-                        <div class="project__tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">RASA</span>
-                            <span class="tech-tag">AI/ML</span>
-                        </div>
-                        <div class="project__buttons" style="justify-content: center; margin-top: 1rem;">
-                            <a href="https://drive.google.com/file/d/1z2xSmY5MK1Q3qTCi0ZHWWTYDVSfWTIl5/view?usp=sharing"
-                                target="_blank" class="button button--small button--outline">
-                                View Credential <i class='bx bx-certification'></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Internship 2 -->
-                <div class="project-card card-glass reveal reveal-right">
-                    <div class="project__img-wrapper"
-                        style="background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); color: #333;">
-                        <div class="project__placeholder">Internship 2</div>
-                    </div>
-                    <div class="project__content">
-                        <h3 class="project__title">Web Development Internship</h3>
-                        <p class="project__description">
-                            Built responsive full-stack applications using React and Node.js. Optimized frontend
-                            performance and created RESTful APIs.
-                        </p>
-                        <div class="project__tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">REST APIs</span>
-                        </div>
-                        <div class="project__buttons" style="justify-content: center; margin-top: 1rem;">
-                            <a href="images/demo_certificate.png" target="_blank"
-                                class="button button--small button--outline">
-                                View Credential <i class='bx bx-certification'></i>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -523,32 +514,38 @@
 
             <div class="certifications__container container certificate-slider">
                 <div class="cert-card card-glass reveal reveal-left">
-                    <i class='bx bx-medal cert__icon'></i>
-                    <h3 class="cert__title">Frontend Developer Certificate</h3>
-                    <span class="cert__issuer">Meta / Coursera</span>
-                    <a href="assets/PL-300.pdf" target="_blank" rel="noopener noreferrer" class="cert__link">View
+                    <img src="images/tcs.png" alt="TCS Logo" class="cert__icon"
+                        style="width: 3rem; height: 3rem; object-fit: contain;">
+                    <h3 class="cert__title">TCS iON Career Edge</h3>
+                    <span class="cert__issuer">TCS iON</span>
+                    <a href="assets/TCS%20ION%20certificate.pdf" target="_blank" rel="noopener noreferrer"
+                        class="cert__link">View
                         Credential <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
                 <div class="cert-card card-glass reveal reveal-right">
-                    <i class='bx bx-certification cert__icon'></i>
-                    <h3 class="cert__title">Cloud Practitioner</h3>
-                    <span class="cert__issuer">AWS</span>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="cert__link">View Credential <i
+                    <img src="images/microsoft.png" alt="Microsoft Logo" class="cert__icon"
+                        style="width: 3rem; height: 3rem; object-fit: contain;">
+                    <h3 class="cert__title">Microsoft Elevate</h3>
+                    <span class="cert__issuer">AICTE / Microsoft</span>
+                    <a href="assets/PL-300%20internship%20complition%20cert%20aicte%20microsoft.pdf" target="_blank"
+                        rel="noopener noreferrer" class="cert__link">View Credential <i
                             class='bx bx-right-arrow-alt'></i></a>
                 </div>
                 <div class="cert-card card-glass reveal reveal-left">
-                    <i class='bx bx-medal cert__icon'></i>
-                    <h3 class="cert__title">Backend Developer Certificate</h3>
-                    <span class="cert__issuer">IBM / Coursera</span>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="cert__link">View Credential <i
-                            class='bx bx-right-arrow-alt'></i></a>
+                    <img src="images/aicte.png" alt="AICTE Logo" class="cert__icon"
+                        style="width: 3rem; height: 3rem; object-fit: contain;">
+                    <h3 class="cert__title">Resume Ranking System</h3>
+                    <span class="cert__issuer">Microsoft / AICTE / Edunet</span>
+                    <a href="assets/AI%20resume%20rank.pdf" target="_blank" rel="noopener noreferrer"
+                        class="cert__link">View Credential <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
                 <div class="cert-card card-glass reveal reveal-right">
-                    <i class='bx bx-certification cert__icon'></i>
-                    <h3 class="cert__title">Database Administrator</h3>
-                    <span class="cert__issuer">Oracle</span>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="cert__link">View Credential <i
-                            class='bx bx-right-arrow-alt'></i></a>
+                    <img src="images/py.png" alt="Python Logo" class="cert__icon"
+                        style="width: 3rem; height: 3rem; object-fit: contain;">
+                    <h3 class="cert__title">Python</h3>
+                    <span class="cert__issuer">Simplilearn</span>
+                    <a href="assets/simplilearn_python..pdf" target="_blank" rel="noopener noreferrer"
+                        class="cert__link">View Credential <i class='bx bx-right-arrow-alt'></i></a>
                 </div>
             </div>
         </section>
@@ -565,10 +562,10 @@
                         or preview it instantly.</p>
                     <div class="resume__buttons">
                         <!-- Uses Google Drive direct download URL -->
-                        <a href="https://drive.google.com/uc?export=download&id=1oVq9Bk-IltCC_ORxRy2158B7Nj3dyQGf"
+                        <a href="https://drive.google.com/uc?export=download&id=1py2tGIwLZ2LQOMpJEzbvrTFbGYz6BnGx"
                             class="button button--primary dl-resume-btn">Download PDF <i class='bx bx-download'></i></a>
                         <!-- Uses Google Drive view URL for instant preview -->
-                        <a href="https://drive.google.com/file/d/1oVq9Bk-IltCC_ORxRy2158B7Nj3dyQGf/view?usp=sharing"
+                        <a href="https://drive.google.com/file/d/1py2tGIwLZ2LQOMpJEzbvrTFbGYz6BnGx/view?usp=sharing"
                             class="button button--outline" target="_blank" rel="noopener noreferrer">Preview <i
                                 class='bx bx-show'></i></a>
                     </div>
