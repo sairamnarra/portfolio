@@ -1,0 +1,303 @@
+/* ===== ANIMATIONS & INTERACTIONS ===== */
+
+/* --- PRELOADER --- */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--body-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* --- SCROLL TO TOP --- */
+.scroll-top {
+    position: fixed;
+    right: 1.5rem;
+    bottom: -20%;
+    background-color: var(--primary-color);
+    opacity: 0.8;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    z-index: var(--z-fixed);
+    transition: all 0.4s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-top:hover {
+    background-color: var(--primary-color-alt);
+    transform: translateY(-5px);
+    opacity: 1;
+}
+
+.show-scroll {
+    bottom: 3rem;
+    animation: pulse-ripple 2s infinite;
+}
+
+@keyframes pulse-ripple {
+    0% {
+        box-shadow: 0 0 0 0 hsla(var(--hue), var(--sat), 45%, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px hsla(var(--hue), var(--sat), 45%, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 hsla(var(--hue), var(--sat), 45%, 0);
+    }
+}
+
+/* --- TYPING LOGIC --- */
+.cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: var(--primary-color);
+    margin-left: 5px;
+    font-size: var(--h1-font-size);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* --- SCROLL REVEAL ANIMATIONS --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-right {
+    transform: translateX(100px);
+}
+
+.reveal-right.active {
+    transform: translateX(0);
+}
+
+.reveal-left {
+    transform: translateX(-100px);
+}
+
+.reveal-left.active {
+    transform: translateX(0);
+}
+
+/* Fade in animation class for javascript toggles */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s forwards ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add stagger effect to skill bars when active */
+.skills__content.active .skills__percentage {
+    animation: fill-bar 1s cubic-bezier(0.5, 0, 0, 1) forwards;
+}
+
+@keyframes fill-bar {
+    0% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    100% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+.skills__percentage {
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+/* --- HERO BLOB MORPH --- */
+@keyframes blob-morph {
+    0% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+
+    100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+}
+
+/* Fix SVG colors on button hovers for consistency */
+.button:hover i {
+    animation: bounce 0.5s ease infinite alternate;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-3px);
+    }
+}
+
+/* --- MORE PORTFOLIO ANIMATIONS --- */
+.pulse-anim {
+    animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.float-anim {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.typing-text {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 3px solid var(--primary-color);
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--primary-color);
+    }
+}
+
+/* --- LOADING CLICK ANIMATION --- */
+.loading-active {
+    position: relative;
+    transform: scale(0.98);
+    transition: transform 0.2s ease;
+}
+
+.loading-active::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+    background-size: 400%;
+    z-index: -1;
+    border-radius: inherit;
+    animation: gradient-spin 2s linear infinite;
+}
+
+@keyframes gradient-spin {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
