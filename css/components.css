@@ -448,6 +448,7 @@ body.dark-mode .scroll-header {
         margin: 0;
         padding: 0;
         pointer-events: none; /* Let clicks pass through */
+        order: 0; /* Reset mobile ordering */
     }
 
     .home__profile-img {
