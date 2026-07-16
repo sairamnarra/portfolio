@@ -244,7 +244,7 @@ textarea {
 }
 
 .home__profile-img {
-  width: min(240px, 80%);
+  width: min(320px, 90%);
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 2rem;
