@@ -432,6 +432,7 @@ body.dark-mode .scroll-header {
 
     .home__content {
         grid-column: 1; /* Position text on the left column */
+        order: 0; /* Reset mobile ordering */
     }
 
     .home__img-wrapper {
@@ -486,6 +487,11 @@ body.dark-mode .scroll-header {
     margin: 0 auto 2.5rem;
     max-width: 850px;
     line-height: 1.7;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
 }
 
 .about__info {
